@@ -186,9 +186,9 @@ function placeBid(team) {
 
     // Determine the bid increment based on the current auction price
     let increment;
-    if (auctionPrice < 2) {
-        increment = 0.2; // 20 lakh
-    } else if (auctionPrice >= 2 && auctionPrice < 8) {
+    if (auctionPrice < 4) {
+        increment = 0.25; // 25 lakh
+    } else if (auctionPrice >= 4 && auctionPrice < 8) {
         increment = 0.4; // 40 lakh
     } else {
         increment = 0.5; // 50 lakh
@@ -223,9 +223,9 @@ function placeBid(team) {
 justBidBtn.addEventListener('click', function () {
     // Determine the bid increment based on the current auction price
     let increment;
-    if (auctionPrice < 2) {
-        increment = 0.2; // 20 lakh
-    } else if (auctionPrice >= 2 && auctionPrice < 8) {
+    if (auctionPrice < 4) {
+        increment = 0.25; // 25 lakh
+    } else if (auctionPrice >= 4 && auctionPrice < 8) {
         increment = 0.4; // 40 lakh
     } else {
         increment = 0.5; // 50 lakh
@@ -774,5 +774,3 @@ function writeCSV(file, data) {
     link.download = file;
     link.click();
 }
-
-
