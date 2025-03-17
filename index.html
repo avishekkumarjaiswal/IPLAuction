@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Join the auction frenzy! Bid on your favorite teams and players and secure a win. Limited-time bidding for top sports teams.">
+    <meta property="og:title" content="Exciting Sports Auction | Bid Now!">
+    <meta property="og:description" content="Join the auction frenzy! Bid on your favorite teams and players and secure a win. Limited-time bidding for top sports teams.">
+    <meta property="og:image" content="https://previewphotos.tiiny.site/Preview.png">
+    <meta property="og:url" content="https://previewphotos.tiiny.site/Preview.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Sports Auction">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Exciting Sports Auction | Bid Now!">
+    <meta name="twitter:description" content="Join the auction frenzy! Bid on your favorite teams and players and secure a win. Limited-time bidding for top sports teams.">
+    <meta name="twitter:image" content="https://previewphotos.tiiny.site/Preview.png">
+    <meta name="twitter:site" content="@YourTwitterHandle">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Left column for item selection and manual bid -->
+        <div class="section left-column">
+            <img id="title-sponser" src="mainsponsor.gif" alt="Item Photo" class="item-photos">
+            <label for="item-select">Choose an item:</label>
+            <select id="item-select">
+                <option value="">Select an item</option>
+                <!-- Options will be populated dynamically by JavaScript -->
+            </select>
+            <button id="refresh-btn">Refresh Price</button>
+            <button id="undo-btn">Undo</button>
+            <div class="manual-input">
+                <label for="manual-price">Enter Avg Bid:</label>
+                <input type="number" id="manual-price" placeholder="Price in Billions" />
+                
+                <div id="admin-panel" style="display: none;">
+                    <h2>Admin Panel</h2>
+                    <div>
+                        <h3>Add/Update Team</h3>
+                        <input type="text" id="team-name" placeholder="Team Name">
+                        <input type="number" id="team-budget" placeholder="Budget">
+                        <button onclick="addOrUpdateTeam()">Save Team</button>
+                    </div>
+                    <div>
+                        <h3>Add/Update Player</h3>
+                        <input type="text" id="player-name" placeholder="Player Name">
+                        <input type="text" id="player-category" placeholder="Category">
+                        <input type="number" id="player-base-price" placeholder="Base Price">
+                        <input type="text" id="player-image-url" placeholder="Image URL">
+                        <button onclick="addOrUpdatePlayer()">Save Player</button>
+                    </div>
+                </div>
+            </div>
+            <h2 id="team-budgets-header" style="cursor: pointer;">Team Budgets:</h2>
+            <table id="team-budgets">
+                <thead>
+                    <tr>
+                        <th>Team</th>
+                        <th>Budget (in Crores)</th>
+                        <th>Players Sold</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rows will be populated dynamically by JavaScript -->
+                </tbody>
+            </table>
+            <br>
+            <img id="sub-sponsers" src="sub-sponser.gif" alt="Item Photo" class="item-photos">
+        </div>
+
+        <!-- Middle column for team bids and budget -->
+        <div class="section middle-column">
+            <div class="auction-section" id="auction-section">
+                <h2>Hindu's eCell IPL Auction 2025</h2>
+                <img src="ecell logo.png" alt="F&IC Logo" class="fic-logo">
+            </div>
+            <div class="bidding-status">
+                <br>
+                <img id="item-photo" src="" alt="Item Photo" class="item-photo">
+                <!-- Parent container for the two columns -->
+                <div class="bidding-info-container">
+                    <!-- Column 1: Base Price, Bidding Status, and Ratings -->
+                    <div class="bidding-text">
+                        <p id="price-label">Base Price:</p>
+                        <p id="base-price">0</p>
+                        <p id="bidding-status">No bids yet.</p>
+                        <p id="player-rating">Rating: -</p> <!-- New element for ratings -->
+                    </div>
+                    <!-- Column 2: Team Logo -->
+                    <div class="team-logo-column">
+                        <img id="team-logo" src="https://static.vecteezy.com/system/resources/previews/053/225/724/non_2x/people-holding-bid-paddles-making-offers-at-an-auction-png.png" alt="Team Logo" class="team-logo">
+                    </div>
+                </div>
+                <button id="sell-btn">Sell</button>
+                <button id="just-bid-btn">Just Bid</button> <!-- New "Just Bid" button -->
+                <div class="team-buttons">
+                    <!-- Team buttons will be populated dynamically by JavaScript -->
+                </div>
+                <br>
+                <img id="sponsers" src="sponsors.png" alt="Item Photo" class="item-photos">
+            </div>
+        </div>
+
+        <!-- Right column for sold items and bidding history -->
+        <div class="section right-column">
+            <h2>Bidding History:</h2>
+            <ul id="bidding-status-history">
+                <!-- Bidding history will be populated dynamically by JavaScript -->
+            </ul>
+            <h2 id="sold-items-header" style="cursor: pointer;">Sold Items:</h2>
+            <ul id="sold-items-list">
+                <!-- Sold items will be populated dynamically by JavaScript -->
+            </ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

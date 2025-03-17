@@ -1,0 +1,666 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 5px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+label {
+    font-weight: bold;
+}
+
+select, input[type="number"], button {
+    padding: 5px;
+    margin: 2px 0;
+    font-size: 0.9em;
+}
+
+.container {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.section {
+    background: white;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.left-column, .right-column {
+    flex: 1 1 30%;
+    max-width: 30%;
+    overflow-y: auto;
+    height: 100%;
+}
+
+.middle-column {
+    flex: 1 1 40%;
+    max-width: 40%;
+    height: 100%;
+}
+
+.manual-input {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.team-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#bidding-status-history {
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+#sold-items-list {
+    max-height: 597px;
+    overflow-y: auto;
+}
+
+h2 {
+    margin-top: 10px;
+    font-size: 1.1em;
+}
+
+.flex-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9em;
+}
+
+.bidding-status {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+@media (max-width: 768px) {
+    .left-column, .right-column, .middle-column {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+}
+button {
+    transition: background-color 0.3s ease;
+}
+button:hover {
+    background-color: #ddd;
+}
+input:focus {
+    border-color: #007BFF;
+    outline: none; /* Remove default outline */
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    padding: 4.85px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+
+
+
+/* Container for the image section */
+#item-photo-section {
+    text-align: center; /* Center the content */
+    border-radius: 8px; /* Rounded corners */}
+
+/* Image styling */
+#item-photo {
+    width: 100%; /* Make the image responsive */
+    max-width: 160px; /* Limit max width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 5px; /* Slightly rounded corners */
+    transition: transform 0.2s; /* Smooth scale on hover */
+}
+
+/* Image hover effect */
+#item-photo:hover {
+    transform: scale(1.05); /* Scale up on hover */
+}
+
+/* Heading style */
+#item-photo-section h3 {
+    font-size: 1.5rem; /* Increase font size for heading */
+    margin-bottom: 10px; /* Space below heading */
+    color: #333; /* Darker text color */
+}
+
+/* Button container to center the button */
+.button-container {
+    display: flex; /* Use Flexbox for alignment */
+    justify-content: center; /* Center the button horizontally */
+    margin: 10px 0; /* Add space above and below the button */
+}
+
+/* Button styling */
+#sell-btn {
+    background-color: #4CAF50; /* Green background color */
+    color: white; /* White text color */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 12px 20px; /* Vertical and horizontal padding */
+    font-size: 1.2rem; /* Increased font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transition for effects */
+}
+
+/* Button hover effect */
+#sell-btn:hover {
+    background-color: #45a049; /* Darker green on hover */
+    transform: scale(1.05); /* Slightly enlarge button on hover */
+}
+
+/* Button active effect */
+#sell-btn:active {
+    transform: scale(0.95); /* Slightly shrink button when clicked */
+}
+
+/* Container for the image section */
+#item-photo-section {
+    text-align: center; /* Center the content */
+    border-radius: 8px; /* Rounded corners */
+}
+
+/* Image styling */
+#item-photo {
+    width: 600px; /* Set fixed width */
+    height: 160px; /* Set fixed height */
+    object-fit: cover; /* Maintain aspect ratio and cover the entire area */
+    border-radius: 5px; /* Slightly rounded corners */
+    transition: transform 0.2s; /* Smooth scale on hover */
+}
+
+/* Image hover effect */
+#item-photo:hover {
+    transform: scale(1.05); /* Scale up on hover */
+}
+
+/* Heading style */
+#item-photo-section h3 {
+    font-size: 1.5rem; /* Increase font size for heading */
+    margin-bottom: 10px; /* Space below heading */
+    color: #333; /* Darker text color */
+}
+
+
+/* Button styling */
+#sell-btn {
+    background-color: #4CAF50; /* Green background color */
+    color: white; /* White text color */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 12px 20px; /* Vertical and horizontal padding */
+    font-size: 1.2rem; /* Increased font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transition for effects */
+}
+
+/* Button hover effect */
+#sell-btn:hover {
+    background-color: #45a049; /* Darker green on hover */
+    transform: scale(1.05); /* Slightly enlarge button on hover */
+}
+
+/* Button active effect */
+#sell-btn:active {
+    transform: scale(0.95); /* Slightly shrink button when clicked */
+}
+/* Image styling */
+#item-photo {
+    width: 100%; /* Image takes full width of its container */
+    max-width: 500px; /* Maximum width of the rectangle */
+    max-height: 200px; /* Maximum height */
+
+    height: auto; /* Let height adjust to maintain aspect ratio */
+    object-fit: contain; /* Fit the image within the rectangle without cropping */
+    border-radius: 5px; /* Slightly rounded corners */
+    transition: transform 0.2s; /* Smooth scaling on hover */
+}
+
+/* Image styling */
+#title-sponser {
+    width: 100%; /* Image takes full width of its container */
+    max-width: 500px; /* Maximum width of the rectangle */
+    max-height: 200px; /* Maximum height */
+
+    height: auto; /* Let height adjust to maintain aspect ratio */
+    object-fit: contain; /* Fit the image within the rectangle without cropping */
+    border-radius: 5px; /* Slightly rounded corners */
+    transition: transform 0.2s; /* Smooth scaling on hover */
+}
+
+/* Image styling */
+#sub-sponsers {
+    width: 100%; /* Image takes full width of its container */
+    max-width: 500px; /* Maximum width of the rectangle */
+    max-height: 90px; /* Maximum height */
+
+    height: auto; /* Let height adjust to maintain aspect ratio */
+    object-fit: contain; /* Fit the image within the rectangle without cropping */
+    border-radius: 5px; /* Slightly rounded corners */
+    transition: transform 0.2s; /* Smooth scaling on hover */
+}
+
+/* Image styling */
+#sponsers {
+    width: 100%; /* Image takes full width of its container */
+    max-width: 500px; /* Maximum width of the rectangle */
+    max-height: 90px; /* Maximum height */
+
+    height: auto; /* Let height adjust to maintain aspect ratio */
+    object-fit: contain; /* Fit the image within the rectangle without cropping */
+    border-radius: 5px; /* Slightly rounded corners */
+    transition: transform 0.2s; /* Smooth scaling on hover */
+}
+
+/* Optional: Add hover effect */
+#item-photo:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+
+/* Container for the image */
+#item-photo-section {
+    display: flex; /* Use Flexbox to manage layout */
+    flex-direction: column; /* Arrange items in a column */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    text-align: center; /* Center the content */
+    border-radius: 8px; /* Rounded corners */
+}
+
+/* Image hover effect */
+#item-photo:hover {
+    transform: scale(1.05); /* Scale up on hover */
+}
+
+
+.auction-section {
+    background-color: #0d54a0; /* Blue background */
+    color: white; /* White text color */
+    text-align: center; /* Center the content */
+    border-radius: 8px; /* Rounded corners */
+    display: flex;
+    flex-direction: row; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    padding: 6px; /* Add padding for breathing space */
+    font-size: 1em; /* Slightly increase font size for readability */
+
+    max-width: 600px; /* Limit width for small area */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add subtle shadow for depth */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9em;
+}
+
+.fic-logo {
+    max-width: 60px; /* Limit logo width */
+    height: auto; /* Maintain aspect ratio */
+    margin-top: 5px; /* Space above logo */
+    margin-bottom: 5px; /* Space below logo */
+}
+
+/* Optional: Responsive styles for smaller screens */
+@media (max-width: 480px) {
+    .auction-section {
+        max-width: 90%; /* Use more width on small screens */
+        font-size: 0.85em; /* Adjust font size for small screens */
+    }
+}
+
+
+
+
+/* Style for the item select dropdown */
+#item-select {
+    width: 254px;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 0.9em;
+    background-color: #f8f9fa; /* Light background */
+    color: #333; /* Dark text */
+    transition: border-color 0.3s ease; /* Smooth border color transition */
+}
+
+#item-select:focus {
+    border-color: #007BFF; /* Blue border on focus */
+    outline: none;
+}
+
+/* Manual price input */
+#manual-price {
+    width: 236px;
+    margin-left: 7px;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 0.9em;
+    background-color: #f8f9fa; /* Light background */
+    color: #333; /* Dark text */
+    transition: border-color 0.3s ease; /* Smooth border color transition */
+}
+
+#manual-price:focus {
+    border-color: #007BFF; /* Blue border on focus */
+    outline: none;
+}
+
+/* Refresh button */
+#refresh-btn {
+    width: 124px;
+    margin-left: 116px;
+    padding: 8px;
+    background-color: #28a745; /* Green background */
+    color: white; /* White text */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+#refresh-btn:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+/* Undo button */
+#undo-btn {
+    width: 124px;
+    margin-left: 2px;
+    padding: 8px;
+    background-color: #dc3545; /* Red background */
+    color: white; /* White text */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+#undo-btn:hover {
+    background-color: #c82333; /* Darker red on hover */
+}
+
+/* Add spacing between labels and inputs */
+label {
+    font-size: 0.9em;
+    color: #555; /* Grey color for labels */
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#bidding-status-history li, #sold-items-list li {
+    padding: 10px;
+    font-size: 1rem;
+    color: #555;
+    border-bottom: 1px solid #eaeaea; /* Divider between items */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+#bidding-status-history li:hover, #sold-items-list li:hover {
+    background-color: #f0f0f0; /* Hover effect */
+}
+
+#bidding-status-history li:last-child, #sold-items-list li:last-child {
+    border-bottom: none; /* Remove border from the last item */
+}
+
+/* Add alternating background color to items */
+#bidding-status-history li:nth-child(odd), #sold-items-list li:nth-child(odd) {
+    background-color: #fafafa; /* Subtle background for odd items */
+}
+
+/* Scrollbar styling */
+#bidding-status-history::-webkit-scrollbar, #sold-items-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+#bidding-status-history::-webkit-scrollbar-thumb, #sold-items-list::-webkit-scrollbar-thumb {
+    background-color: #cccccc;
+    border-radius: 10px;
+}
+
+/* Media Queries for smaller screens */
+@media screen and (max-width: 768px) {
+
+
+    .right-column h2 {
+        font-size: 1.25rem; /* Reduce heading size */
+    }
+}
+
+
+
+
+.export-section {
+    display: flex;               /* Use flexbox for layout */
+    flex-direction: column;      /* Arrange items in a column */
+}
+
+.export-section h2 {
+    margin-bottom: 10px;         /* Space between the header and button */
+}
+
+.export-section button {
+    margin-bottom: 10px;         /* Space between the button and sold items list */
+}
+
+
+
+
+
+
+
+
+
+
+
+.team-buttons button {
+    cursor: pointer;            /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover transition */
+}
+
+.team-buttons button:hover {
+    background-color: #0d54a0;  /* Darker blue on hover */
+    transform: scale(1.05);     /* Slight scaling on hover */
+    color: #ffffff;
+    border-radius: 5%;
+    border-color: #ffffff;
+}
+
+.team-buttons button:active {
+    background-color: #004494;  /* Even darker blue when clicked */
+}
+
+
+
+
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100vh;
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.container {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    min-height: 100vh; /* Ensure it takes full screen height */
+}
+
+.left-column, .right-column, .middle-column {
+    height: 100vh; /* Ensure columns take full screen height */
+    overflow-y: auto; /* Allow vertical scrolling for content overflow */
+}
+
+.middle-column {
+    flex: 1 1 40%;
+    max-width: 40%;
+    height: 100%;
+}
+
+@media (max-width: 768px) {
+    .left-column, .right-column, .middle-column {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+}
+
+
+
+
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgb(255, 255, 255); /* Light green thumb */
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #868a86; /* Lighter green on hover */
+}
+
+
+/* Parent container for the two columns */
+.bidding-info-container {
+    display: flex; /* Use Flexbox for layout */
+    align-items: center; /* Vertically center the content */
+    gap: 20px; /* Add spacing between the columns */
+}
+
+/* Column 1: Base Price and Bidding Status */
+.bidding-text {
+    flex: 1; /* Allow this column to take up available space */
+    text-align: left; /* Align text to the left */
+}
+
+/* Column 2: Team Logo */
+.team-logo-columns {
+    flex: 0 0 auto; /* Do not grow or shrink, keep fixed size */
+}
+
+/* Style for the team logo */
+.team-logo {
+    max-width: 50px; /* Adjust the size as needed */
+    max-height: 50px; /* Adjust the size as needed */
+}
+
+.bidding-info-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.bidding-text {
+    flex: 1;
+    text-align: left;
+}
+
+.team-logo-column {
+    flex: 0 0 auto;
+}
+
+.team-logo {
+    max-width: 75px;
+    max-height: 75px;
+}
+
+
+.team-logo {
+    display: none; /* Hide the team logo by default */
+}
+
+.team-logo[src] {
+    display: block; /* Show the team logo when it has a src */
+}
+
+
+#player-rating {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px;
+}
+
+#player-category-display {
+    font-size: 1.2em;
+    color: #555;
+    margin-top: 10px;
+}
